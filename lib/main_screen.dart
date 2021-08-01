@@ -228,7 +228,10 @@ class _SearchFormState extends State<SearchForm> {
             fillColor: Colors.white,
             prefixIcon: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.search, color: Colors.blue,),
+              icon: Icon(
+                Icons.search,
+                color: Colors.blue,
+              ),
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(50),
@@ -285,16 +288,64 @@ class PopularHotelsList extends StatelessWidget {
                   margin: EdgeInsets.only(right: 5),
                   width: 225,
                   child: Card(
-                    semanticContainer: true,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0)),
-                    elevation: 5,
-                    child: Image.asset(
-                      'images/farm-house.jpg',
-                      fit: BoxFit.fill,
-                    ),
-                  ),
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0)),
+                      elevation: 5,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                          image: AssetImage('images/farm-house.jpg'),
+                          fit: BoxFit.fill,
+                        )),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0)),
+                          elevation: 5,
+                          margin: EdgeInsets.fromLTRB(10, 150, 10, 15),
+                          child: Column(children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
+                              child: Text(
+                                "Farm House Lembang",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(Icons.place, color: Colors.blueAccent),
+                                  Text(
+                                    'Lembang',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(Icons.grade, color: Colors.orangeAccent),
+                                  Text(
+                                    '3.8/5 (1.2k)',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ]),
+                        ),
+                      )),
                 ),
                 Container(
                   margin: EdgeInsets.only(right: 5),
@@ -305,11 +356,59 @@ class PopularHotelsList extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0)),
                     elevation: 5,
-                    child: Image.asset(
-                      'images/bosscha.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                          image: AssetImage('images/bosscha.jpg'),
+                          fit: BoxFit.fill,
+                        )),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0)),
+                          elevation: 5,
+                          margin: EdgeInsets.fromLTRB(10, 150, 10, 15),
+                          child: Column(children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
+                              child: Text(
+                                "Observatorium Bosscha",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(Icons.place, color: Colors.blueAccent),
+                                  Text(
+                                    'Lembang',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(Icons.grade, color: Colors.orangeAccent),
+                                  Text(
+                                    '4.4/5 (124)',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ]),
+                        ),
+                      )),
                 ),
                 Container(
                   margin: EdgeInsets.only(right: 5),
@@ -320,11 +419,59 @@ class PopularHotelsList extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0)),
                     elevation: 5,
-                    child: Image.asset(
-                      'images/jalan-asia-afrika.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                          image: AssetImage('images/jalan-asia-afrika.jpg'),
+                          fit: BoxFit.fill,
+                        )),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0)),
+                          elevation: 5,
+                          margin: EdgeInsets.fromLTRB(10, 150, 10, 15),
+                          child: Column(children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
+                              child: Text(
+                                "Jalan Asia Afrika",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(Icons.place, color: Colors.blueAccent),
+                                  Text(
+                                    'Kota Bandung',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(Icons.grade, color: Colors.orangeAccent),
+                                  Text(
+                                    '4.0/5 (500)',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ]),
+                        ),
+                      )),
                 ),
               ],
             ),
