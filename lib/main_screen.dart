@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mykost/models/popular_hotel.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _MainScreenState extends State<MainScreen> {
             Header(),
             Category(),
             SearchForm(),
-            PopularHotelsList(),
+            PopularHotels(),
             PopularHolidaysList(),
           ],
         ));
@@ -250,7 +251,7 @@ class _SearchFormState extends State<SearchForm> {
   }
 }
 
-class PopularHotelsList extends StatelessWidget {
+class PopularHotels extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -281,10 +282,11 @@ class PopularHotelsList extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 5),
             height: 300,
-            child: ListView(
+            child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                Container(
+              itemBuilder: (context, index) {
+                final PopularHotel hotel = PopularHotelList[index];
+                return Container(
                   margin: EdgeInsets.only(right: 5),
                   width: 225,
                   child: Card(
@@ -296,7 +298,7 @@ class PopularHotelsList extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                          image: AssetImage('images/farm-house.jpg'),
+                          image: AssetImage(hotel.image),
                           fit: BoxFit.fill,
                         )),
                         child: Card(
@@ -308,7 +310,7 @@ class PopularHotelsList extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
                               child: Text(
-                                "Farm House Lembang",
+                                hotel.name,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
@@ -321,7 +323,7 @@ class PopularHotelsList extends StatelessWidget {
                                 children: <Widget>[
                                   Icon(Icons.place, color: Colors.blueAccent),
                                   Text(
-                                    'Lembang',
+                                    hotel.location,
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
@@ -335,7 +337,7 @@ class PopularHotelsList extends StatelessWidget {
                                 children: <Widget>[
                                   Icon(Icons.grade, color: Colors.orangeAccent),
                                   Text(
-                                    '3.8/5 (1.2k)',
+                                    hotel.star + ' (' + hotel.comment + ')',
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
@@ -346,134 +348,9 @@ class PopularHotelsList extends StatelessWidget {
                           ]),
                         ),
                       )),
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 5),
-                  width: 225,
-                  child: Card(
-                    semanticContainer: true,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0)),
-                    elevation: 5,
-                    child: Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                          image: AssetImage('images/bosscha.jpg'),
-                          fit: BoxFit.fill,
-                        )),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)),
-                          elevation: 5,
-                          margin: EdgeInsets.fromLTRB(10, 150, 10, 15),
-                          child: Column(children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
-                              child: Text(
-                                "Observatorium Bosscha",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(Icons.place, color: Colors.blueAccent),
-                                  Text(
-                                    'Lembang',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(Icons.grade, color: Colors.orangeAccent),
-                                  Text(
-                                    '4.4/5 (124)',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ]),
-                        ),
-                      )),
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 5),
-                  width: 225,
-                  child: Card(
-                    semanticContainer: true,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0)),
-                    elevation: 5,
-                    child: Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                          image: AssetImage('images/jalan-asia-afrika.jpg'),
-                          fit: BoxFit.fill,
-                        )),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)),
-                          elevation: 5,
-                          margin: EdgeInsets.fromLTRB(10, 150, 10, 15),
-                          child: Column(children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
-                              child: Text(
-                                "Jalan Asia Afrika",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(Icons.place, color: Colors.blueAccent),
-                                  Text(
-                                    'Kota Bandung',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(Icons.grade, color: Colors.orangeAccent),
-                                  Text(
-                                    '4.0/5 (500)',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ]),
-                        ),
-                      )),
-                ),
-              ],
+                );
+              },
+              itemCount: PopularHotelList.length,
             ),
           )
         ],
