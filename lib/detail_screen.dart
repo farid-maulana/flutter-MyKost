@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mykost/detail_bottom_navbar.dart';
 import 'package:mykost/models/popular_hotel.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -93,6 +94,7 @@ class DetailScreen extends StatelessWidget {
           ) 
         ),
       ),
+      bottomNavigationBar: DetailBottomNavBar(hotel: hotel),
     );
   }
 }
