@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mykost/detail_screen.dart';
 import 'package:mykost/models/popular_hotel.dart';
 
 class MainScreen extends StatefulWidget {
@@ -286,68 +287,75 @@ class PopularHotels extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final PopularHotel hotel = PopularHotelList[index];
-                return Container(
-                  margin: EdgeInsets.only(right: 5),
-                  width: 225,
-                  child: Card(
-                      semanticContainer: true,
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0)),
-                      elevation: 5,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                          image: AssetImage(hotel.image),
-                          fit: BoxFit.fill,
-                        )),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)),
-                          elevation: 5,
-                          margin: EdgeInsets.fromLTRB(10, 150, 10, 15),
-                          child: Column(children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
-                              child: Text(
-                                hotel.name,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return DetailScreen(hotel: hotel);
+                    }));
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(right: 5),
+                    width: 225,
+                    child: Card(
+                        semanticContainer: true,
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0)),
+                        elevation: 5,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                            image: AssetImage(hotel.image),
+                            fit: BoxFit.fill,
+                          )),
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0)),
+                            elevation: 5,
+                            margin: EdgeInsets.fromLTRB(10, 150, 10, 15),
+                            child: Column(children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
+                                child: Text(
+                                  hotel.name,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(Icons.place, color: Colors.blueAccent),
-                                  Text(
-                                    hotel.location,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
+                                child: Row(
+                                  children: <Widget>[
+                                    Icon(Icons.place, color: Colors.blueAccent),
+                                    Text(
+                                      hotel.location,
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                              child: Row(
-                                children: <Widget>[
-                                  Icon(Icons.grade, color: Colors.orangeAccent),
-                                  Text(
-                                    hotel.star + ' (' + hotel.comment + ')',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                child: Row(
+                                  children: <Widget>[
+                                    Icon(Icons.grade, color: Colors.orangeAccent),
+                                    Text(
+                                      hotel.star + ' (' + hotel.comment + ')',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                          ]),
-                        ),
-                      )),
+                            ]),
+                          ),
+                        )),
+                  ),
                 );
               },
               itemCount: PopularHotelList.length,
