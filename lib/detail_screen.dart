@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mykost/detail_bottom_navbar.dart';
 import 'package:mykost/models/popular_hotel.dart';
+import 'package:readmore/readmore.dart';
 
 class DetailScreen extends StatelessWidget {
   final PopularHotel hotel;
@@ -82,12 +83,19 @@ class DetailScreen extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
                   alignment: Alignment.centerLeft,
-                  child: Text(
+                  child: ReadMoreText(
                     hotel.description,
                     style: TextStyle(
-                      fontSize: 18,
+                      color: Colors.black,
+                      fontSize: 18
                     ),
-                  )
+                    trimLines: 5,
+                    colorClickableText: Colors.blueAccent,
+                    trimMode: TrimMode.Line,
+                    trimCollapsedText: 'Show more',
+                    trimExpandedText: 'Show less',
+                    moreStyle: TextStyle(fontSize: 18, color: Colors.blueAccent),
+                  ),
                 ),
               ],
             ) 
