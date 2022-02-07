@@ -18,16 +18,36 @@ class DetailScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Container(
-                  height: 400,
-                  child: Card(
-                    semanticContainer: true,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0)),
-                    elevation: 5,
-                    child: Image.asset(hotel.image, fit: BoxFit.fill,),
-                  ),
+                Stack(
+                  children: <Widget>[
+                    Container(
+                      height: 400,
+                      child: Card(
+                        semanticContainer: true,
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0)),
+                        elevation: 5,
+                        child: Image.asset(hotel.image, fit: BoxFit.fill,),
+                      ),
+                    ),
+                    SafeArea(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child:  CircleAvatar(
+                          backgroundColor: Colors.white,
+                          radius: 20,
+                          child: IconButton(
+                            color: Colors.black,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(Icons.arrow_back_ios_outlined, size: 18,)
+                          ),
+                        ),
+                      )
+                    ),
+                  ],
                 ),
                 Container(
                   margin: EdgeInsets.fromLTRB(10, 20, 10, 10),
